@@ -1,0 +1,32 @@
+{% extends 'stargazer/layout/row_hbf-col_mr.html' %}
+{% load i18n %}
+
+{% block sec_m %}
+<h1>{% trans 'dashboard' %}</h1>
+
+<section class="followed_journeys">
+    <h3>{% trans 'Journeys you\'re following' %}</h3>
+    <div class="last_story_list story_list">
+    {% include 'stargazer/com/brick_list' with brick_list=last_story_list %}
+    </div>
+</section>
+
+<section class="feedback_list">
+    <h3>{% trans 'Feedback' %}</h3>
+</section>
+
+<section class="block_list">
+    <h3>{% trans 'Explore' %}</h3>
+{% for block in block_list %}
+    <a class="block" href="{{ block.abspath_full }}">
+        <img src="{{ block.cover_uri }}" alt="" />
+        <h4>{{ block.title }}</h4>            
+        <div class="text">{{ block.text }}</div>
+    </a>
+{% empty %}
+{% endfor %}   
+</section>
+{% endblock %}
+
+{% block sec_r %}
+{% endblock %}

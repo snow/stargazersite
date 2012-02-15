@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+{% load i18n %}<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!--<meta name="language" content="zh_cn" />-->
-    <title>{% block title %}Stargazer{% endblock %}</title>
+    <title>{% block title %}{% trans 'Stargazer' %}{% endblock %}</title>
     
     <!--<base href="/w/" />-->
     
@@ -38,12 +38,12 @@
 {% block body %}
     {% block layout_hd %}
     <header>
-        <a class="logo" href="/{% if user.is_authenticated %}dashboard/{% endif %}">Stargazer</a>
+        <a class="logo" href="/{% if user.is_authenticated %}dashboard/{% endif %}">{% comment %}Translators: this is the project title{% endcomment %}{% trans 'Stargazer' %}</a>
         
         <nav>
-            <a href="/public/">Explore</a>
+            <a href="/public/">{% trans 'Explore' %}</a>
             {% if user.is_authenticated %}
-            <a href="{{ user.get_profile.primary_site.uri }}">Mine</a>
+            <a href="{{ user.get_profile.primary_site.uri }}">{% trans 'Mine' %}</a>
             <a href="/posts/create/">+Post</a>
             {% endif %}
         </nav>
@@ -90,8 +90,9 @@
     {% block layout_ft %}
     <div class="c"></div>
     <footer>
-        <a href="/under_construction/">why stargazer</a> |
-        <a href="http://hypo.firebloom.cc/site/snow/" target="_blank">about snow</a>
+        <a href="/under_construction/">{% trans 'why stargazer' %}</a> |
+        <a href="/under_construction/">{% trans 'about' %}</a> |
+        <a href="http://hypo.firebloom.cc/site/snow/" target="_blank">{% trans 'blog' %}</a>
     </footer>
     {% endblock %}
     

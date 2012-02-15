@@ -1,0 +1,55 @@
+{% extends 'stargazer/layout/row_hbf-col_mr.html' %}
+{% load i18n %}
+
+{% block sec_m %}
+<h1>{{ journey.title }}</h1>
+<div class="story_list">
+{% for story in story_list %}
+    <div class="story">
+        {% if story.title %}<h3>{{ story.title }}</h3>{% endif %}
+        {% if story.text %}<div class="text">{{ story.text }}</div>{% endif %}
+        {% if story.photos %}
+        <div class="photo_list">
+        {% for photo in story.photos %}
+            <img src="photo.uri" alt="" />
+        {% endfor %}
+        </div>
+        {% endif %}
+        <footer>
+            <div class="meta">
+                <span class="updated">{{ story.updated }}</span>
+            </div>
+        </footer>
+    </div>
+{% empty %}
+{% endfor %}    
+</div>
+{% endblock %}
+
+{% block sec_r %}
+<section class="owner">
+{% blocktrans with owner.fullname %}this is journey of<br /><a><strong>{{ fullname }}</strong></a>{% endblocktrans %}
+</section>
+
+<nav>
+    <span>&gt; {% trans 'first story first' %}</span><br />
+    <a href="#">{% trans 'last story first' %}</a>
+</nav>
+
+<section class="mark">
+    <a class="mark" href="">{% trans 'Mark this place' %}</a>
+</section>
+
+{% if journey.places %}
+<section class="track">
+{% for place in journey.places %}
+<a href="place.abspath_full">{{ place.name }}</a>
+{% if is_first_story_first %}
+-&gt;
+{% else %}
+&lt;-
+{% endif %}
+{% endfor %}    
+</section>
+{% endif %}
+{% endblock %}

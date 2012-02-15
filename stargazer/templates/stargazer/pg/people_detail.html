@@ -1,0 +1,24 @@
+{% extends 'stargazer/layout/row_hbf-col_mr.html' %}
+{% load i18n %}
+
+{% block sec_m %}
+<section class="journey_list">
+{% for journey in journey_list %}
+    <a class="" href="{{ journey.abspath_full }}"><h3>{{ journey.title }}</h3></a>
+    <div class="story_list">
+    {% include 'stargazer/com/brick_list' with brick_list=story_list %}
+    </div>
+{% empty %}
+{% endfor %}    
+</section>
+{% endblock %}
+
+{% block sec_r %}
+<section class="people_info">
+    <img src="{{ owner.avatar_uri }}" alt="{% blocktrans with fullname=owner.fullname %}{{ fullname }}'s avatar{% endblocktrans %}" />
+    <h1>{{ owner.fullname }}</h1>
+    {% if owner.journey_count %}<p>{% blocktrans count c=owner.journey_count %}{{ c }} journey{% plural %}{{ c }} journeys{% endblocktrans %}<br />
+{% if owner.place_count %}{% blocktrans count c=owner.place_count %}been {{ c }} place{% plural %}been {{ c }} places{% endblocktrans %}<br />{% endif %}
+{% if owner.story_count %}{% blocktrans count c=owner.story_count %}wrote {{ c }} story{% plural %}wrote {{ c }} stories{% endblocktrans %}{% endif %}</p>{% endif %}
+</section>
+{% endblock %}

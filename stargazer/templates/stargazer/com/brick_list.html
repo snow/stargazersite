@@ -1,0 +1,9 @@
+<div class="brick_list">
+{% for brick in brick_list %}
+    <a class="brick {{ brick.__class__|lower }}" href="{{ brick.abspath_full }}">
+        {% if brick.cover_uri %}<img src="{{ brick.cover_uri }}" alt="" />{% endif %}
+        {% if brick.title %}<h4>{{ brick.title }}</h4>{% endif %}            
+        {% if brick.text %}<div class="text">{{ brick.text }}</div>{% endif %}
+    </a>
+{% endfor %}
+</div>
