@@ -12,5 +12,5 @@ class DetailV(gv.TemplateView):
     ''''''
     template_name = 'stargazer/pg/place_detail.html'
     
-    def get_context_data(self, username):
+    def get_context_data(self, id_str):
         return demo_context    

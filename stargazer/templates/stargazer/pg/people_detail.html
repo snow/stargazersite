@@ -4,13 +4,24 @@
 {% block sec_m %}
 <section class="journey_list">
 {% for journey in journey_list %}
-    <a class="" href="{{ journey.abspath_full }}"><h3>{{ journey.title }}</h3></a>
-    <div class="story_list">
-    {% include 'stargazer/com/brick_list' with brick_list=story_list %}
+    <div class="journey">
+        <h3><a class="noul" href="{{ journey.abspath_full }}">{{ journey.title }}</a></h3>
+        <div class="story_list">
+        {% include 'stargazer/com/brick_list.html' with brick_list=journey.stories %}
+            <div class="c"></div>
+        </div>
     </div>
 {% empty %}
 {% endfor %}    
 </section>
+<script>
+(function($){
+    $('.brick_list').masonry({
+        itemSelector: '.brick',
+        //columnWidth: 200
+    });
+})(jQuery);
+</script>
 {% endblock %}
 
 {% block sec_r %}

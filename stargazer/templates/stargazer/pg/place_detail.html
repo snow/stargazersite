@@ -3,10 +3,10 @@
 
 {% block sec_m %}
 <section class="stream">
-{% for date, story_list in date_story_list %}
+{% for date, story_list in place.stories_by_date %}
     <div class="data">{{ date }}</div>
     <div class="story_list">
-    {% include 'stargazer/com/brick_list' with brick_list=story_list %}
+    {% include 'stargazer/com/brick_list.html' with brick_list=story_list %}
     </div>
 {% empty %}
 {% endfor %}    
@@ -17,7 +17,9 @@
 <section class="place_info">
     <h1>{{ place.name }}</h1>
     <div class="map"></div>
-    {{ place.story_count }} stories here
+    {% if place.story_count %}
+    <div class="">{% blocktrans count c=place.story_count %}{{ c }} story here{% plural %}{{ c }} stories here{% endblocktrans %}</div>
+    {% endif %}
 </section>
 
 <section class="mark">
@@ -26,7 +28,7 @@
 
 {% if place.watcher_list %}
 <section class="watcher_list">
-    <div>{% blocktrans count l=place.watcher_list|length %}{{ l }} people marked this place{% endblocktrans %}</div>
+    <div>{% blocktrans with l=place.watcher_list|length %}{{ l }} people marked this place{% endblocktrans %}</div>
     <div class="">
     {% for people in place.watcher_list %}
         <a href="{{ people.abspath_full }}"><img src="{{ people.avatar_uri }}" alt="{{ people.fullname }}" /></a>
@@ -34,5 +36,5 @@
     </div>
     <a href="#">{% trans 'see all' %} &gt;</a>
 </section>
-{% endblock %}
 {% endif %}
+{% endblock %}

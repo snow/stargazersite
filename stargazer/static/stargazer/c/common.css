@@ -134,6 +134,33 @@ body>.messages {position:absolute; width:100%; top:10px; text-align:center; z-in
     body>.messages .message  {display:block; margin:0 20px 20px; font-size:1.2em; text-decoration:none}
 
 /*
+ * misc
+ */
+a.noul {text-decoration:none}
+a.noul:hover {text-decoration:underline}
+/*
+ * brick list
+ */
+.brick_list .brick {position:relative; float:left; border:4px solid transparent; width:192px}
+    .brick_list .brick:hover {border-color:#ccc}
+    a.brick:hover {text-decoration:none}
+    
+    .brick img {float:left; max-width:100%}
+    
+    .brick .text {position:absolute; display:none; padding:5px; width:182px; color:#fff; background:#000; opacity:0.8}
+        .brick .text h4 {color:#fff}
+        
+        .brick:hover .text {display:block}
+    
+    .pltxt .text {position:static; display:block; height:100px}
+
+/*
+ * journey_list
+ */
+.journey_list .journey {margin-top:20px; border-top:1px solid #ccc; 
+                        padding-top:10px}
+
+/*
  * post list
  */
 h1.site_title {margin:0.5em 0 1em; padding-bottom:0.5em; border-bottom:1px solid #999}
