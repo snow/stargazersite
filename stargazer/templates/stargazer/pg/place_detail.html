@@ -4,12 +4,23 @@
 {% block sec_m %}
 <section class="stream">
 {% for date, story_list in place.stories_by_date %}
-    <div class="data">{{ date }}</div>
-    <div class="story_list">
-    {% include 'stargazer/com/brick_list.html' with brick_list=story_list %}
+    <div class="stream_group">
+        <h3>{{ date }}</h3>
+        <div class="story_list">
+            {% include 'stargazer/com/brick_list.html' with brick_list=story_list %}
+            <div class="c"></div>
+        </div>
     </div>
 {% empty %}
 {% endfor %}    
+<script>
+(function($){
+    $('.brick_list').masonry({
+        itemSelector: '.brick',
+        //columnWidth: 200
+    });
+})(jQuery);
+</script>
 </section>
 {% endblock %}
 

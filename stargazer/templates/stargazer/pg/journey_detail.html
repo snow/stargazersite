@@ -2,10 +2,10 @@
 {% load i18n %}
 
 {% block sec_m %}
-<h1>{{ journey.title }}</h1>
-<div class="story_list">
+<h1 class="journey_title">{{ journey.title }}</h1>
+<div class="story_list stream">
 {% for story in journey.stories %}
-    <div class="story">
+    <div class="story stream_item">
         {% if story.title %}<h3>{{ story.title }}</h3>{% endif %}
         {% if story.text %}<div class="text">{{ story.text }}</div>{% endif %}
         {% if story.photos %}
@@ -17,7 +17,8 @@
         {% endif %}
         <footer>
             <div class="meta">
-                <span class="date">{{ story.date }}</span>
+                <span class="date">{{ story.date }}</span> {% trans 'at' %}
+                <span class="place">{{ story.place }}</span>
             </div>
         </footer>
     </div>

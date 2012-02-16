@@ -60,7 +60,7 @@ j_d_yunnan = {
         },
         {
             'title': '大理第一天感受',
-            'text': '乱七八糟的正文，乱七八糟的正文，乱七八糟的正文，乱七八糟的正文，乱七八糟的正文',
+            'text': '这是没有图片的故事的例子。乱七八糟的正文，乱七八糟的正文，乱七八糟的正文，乱七八糟的正文，乱七八糟的正文',
             'photos': [],
             'cover_uri': '',
             'place': '大理',
@@ -244,6 +244,7 @@ journey_list = [
 people_drangoncd = {
     'username': 'dragoncd',
     'fullname': 'Confused Dragon',
+    'avatar_uri': '/s/stargazer/demo/dragoncd/4117350631_4df43169db.jpg',
     'abspath_full': '/people/v/dragoncd/',
     'journeys': [j_d_yunnan, j_d_jiuzhai],              
 }

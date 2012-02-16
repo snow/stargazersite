@@ -138,6 +138,8 @@ body>.messages {position:absolute; width:100%; top:10px; text-align:center; z-in
  */
 a.noul {text-decoration:none}
 a.noul:hover {text-decoration:underline}
+
+h1.journey_title {margin-top:10px; padding-bottom:10px; border-bottom:1px solid #999}
 /*
  * brick list
  */
@@ -155,10 +157,20 @@ a.noul:hover {text-decoration:underline}
     .pltxt .text {position:static; display:block; height:100px}
 
 /*
+ * stream
+ */
+.stream_item footer {margin:20px 0; border-bottom:1px solid #ccc; padding-bottom:10px}
+.stream_item .meta {color:#666}
+
+.stream_group {margin-top:20px; border-top:1px solid #ccc; padding-top:10px}
+/*
  * journey_list
  */
 .journey_list .journey {margin-top:20px; border-top:1px solid #ccc; 
                         padding-top:10px}
+
+
+
 
 /*
  * post list
@@ -278,8 +290,8 @@ sup.edit {display:none}
 /*
  * author
  */
-.sec-r .author {margin-top:20px}
-.sec-r .author img {margin-left:-11px}
+.sec-r .people_info {margin-top:20px}
+.sec-r .people_info img {max-width:270px; margin-left:-11px}
 
 /*
  * forms
