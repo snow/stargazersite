@@ -8,6 +8,7 @@ import views as v
 urlpatterns = patterns('',
     url(r'^$', v.RootV.as_view()),
     url(r'^index/$', v.IndexV.as_view()),
+    url(r'^explore/$', v.ExploreV.as_view()),
     url(r'^dashboard/$', v.DashboardV.as_view()),
     
     url(r'^people/', include('stargazer.people.urls')),

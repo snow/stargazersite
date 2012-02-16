@@ -302,12 +302,20 @@ place_erhai['title'] = place_erhai['name']
 # context
 # ------
 #
+journey_updates = []
+for journey in journey_list:
+    update = journey['stories'][-1]
+    update['text'] += update['title'] + '\n' + 'updated: {}'.format(update['date'])
+    update['title'] = journey['title']
+    journey_updates.append(update)
+
 context_data = {
     'owner': people_drangoncd,
     'journey_list': journey_list,
     'journey': j_d_yunnan,
     'place': place_dali,
-    'story': j_d_yunnan['stories'][0]
+    'story': j_d_yunnan['stories'][0],
+    'journey_updates': journey_updates,
 }
 
 #all_bricks = j_d_yunnan['stories']

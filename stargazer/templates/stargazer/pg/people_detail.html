@@ -16,9 +16,14 @@
 </section>
 <script>
 (function($){
-    $('.brick_list').masonry({
+    var j_imgls = $('.brick_list');
+    
+    j_imgls.masonry({
         itemSelector: '.brick',
-        //columnWidth: 200
+    });
+    
+    j_imgls.find('img').load(function(evt){
+        j_imgls.masonry('reload');
     });
 })(jQuery);
 </script>

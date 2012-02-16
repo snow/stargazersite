@@ -41,7 +41,7 @@
         <a class="logo" href="/{% if user.is_authenticated %}dashboard/{% endif %}">{% comment %}Translators: this is the project title{% endcomment %}{% trans 'Stargazer' %}</a>
         
         <nav>
-            <a href="/public/">{% trans 'Explore' %}</a>
+            <a href="/explore/">{% trans 'Explore' %}</a>
             {% if user.is_authenticated %}
             <a href="{{ user.get_profile.primary_site.uri }}">{% trans 'Mine' %}</a>
             <a href="/posts/create/">+Post</a>

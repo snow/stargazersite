@@ -5,28 +5,49 @@
 <h1>{% trans 'dashboard' %}</h1>
 
 <section class="followed_journeys">
-    <h3>{% trans 'Journeys you\'re following' %}</h3>
-    <div class="last_story_list story_list">
-    {% include 'stargazer/com/brick_list' with brick_list=last_story_list %}
+    <h3>{% trans "Journeys you've marked" %}</h3>
+    <div class="journey_updates story_list">
+    {% include 'stargazer/com/brick_list.html' with brick_list=journey_updates %}
     </div>
+</section>
+
+<section class="">
+    other things you marked: <a href="">places</a> | <a href="">stories</a> | <a href="">all</a>
 </section>
 
 <section class="feedback_list">
     <h3>{% trans 'Feedback' %}</h3>
+    <ul>
+    <li><a href="{{ owner.abspath_full }}">{{ owner.fullname }}</a> marked your <a href="{{ story.abspath_full }}">{{ story.title }}</a></li>
+    <li><a href="{{ owner.abspath_full }}">{{ owner.fullname }}</a> marked your <a href="{{ journey.abspath_full }}">{{ journey.title }}</a></li>
+    <li><a href="{{ owner.abspath_full }}">{{ owner.fullname }}</a> marked your <a href="{{ story.abspath_full }}">{{ story.title }}</a></li>
+    <li><a href="{{ owner.abspath_full }}">{{ owner.fullname }}</a> marked your <a href="{{ journey.abspath_full }}">{{ journey.title }}</a></li>
+    </ul>
 </section>
 
-<section class="block_list">
+<section class="explore">
     <h3>{% trans 'Explore' %}</h3>
-{% for block in block_list %}
-    <a class="block" href="{{ block.abspath_full }}">
-        <img src="{{ block.cover_uri }}" alt="" />
-        <h4>{{ block.title }}</h4>            
-        <div class="text">{{ block.text }}</div>
-    </a>
-{% empty %}
-{% endfor %}   
+    {% include 'stargazer/com/brick_list.html' %}
+    <footer>
+        <a href="/explore/">see more &gt;</a>
+    </footer>
 </section>
+<script>
+(function($){
+    var j_imgls = $('.brick_list');
+    
+    j_imgls.masonry({
+        itemSelector: '.brick',
+    });
+    
+    j_imgls.find('img').load(function(evt){
+        j_imgls.masonry('reload');
+    });
+})(jQuery);
+</script>
 {% endblock %}
 
 {% block sec_r %}
+<h2><a href="{{ owner.abspath_full }}">{{ owner.fullname }} &gt;</a></h2>
+<h2><a href="">{% trans '+Story' %}</a></h2>
 {% endblock %}
