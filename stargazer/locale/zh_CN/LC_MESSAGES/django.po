@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 03:39-0600\n"
+"POT-Creation-Date: 2012-02-16 20:58+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,33 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: demo/data.py:329
+#, python-format
+msgid ""
+"%(journey_count)d journeys, been %(place_count)d places, wrote "
+"%(story_count)d stories."
+msgstr ""
+"%(journey_count)d 次旅行, 到过 %(place_count)d 个地方, 写下 "
+"%(story_count)d 个故事."
+
+#: demo/data.py:337
+#, python-format
+msgid ""
+"%(been_count)d people been here, with %(jorney_count)d journeys and "
+"%(story_count)d stories. %(marked_count)d people marked it."
+msgstr ""
+"%(been_count)d 人在 %(jorney_count)d 次旅行中来过，写下 "
+"%(story_count)d 个故事. 被 %(marked_count)d 人mark."
+
+#: demo/data.py:348
+#, python-format
+msgid ""
+"%(story_count)d stories in %(place_count)d places, by %(owner)s. "
+"%(marked_count)d people marked it."
+msgstr ""
+"%(owner)s 途经 %(place_count)d 个地方, 写下 %(story_count)d 个故事。"
+"被 %(marked_count)d 人mark."
 
 #: templates/stargazer/layout/base.html:6
 msgid "Stargazer"

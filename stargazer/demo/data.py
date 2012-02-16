@@ -1,5 +1,10 @@
 # -*- coding: UTF-8 -*-
+from django.utils.translation import ugettext_lazy as _
 
+#
+# funtions
+# --------
+#
 def _build_track_for_journey(journey):
     places = []
     for s in journey['stories']:
@@ -28,14 +33,10 @@ def _extract_stories_by_place(place, journeys):
                 
     return stories_by_date_sorted
 
-owner = {
-    'username': 'snowhs',
-    'fullname': 'Snow Hellsing',
-    'journey_count': 3,
-    'place_count': 7,
-    'story_count': 21
-}
-
+#
+# journeys
+# -----------
+#
 j_d_yunnan = {
     'title': '云南写生',   
     'abspath_full': '/journeys/v/1/yunnan/',           
@@ -191,6 +192,7 @@ j_d_yunnan = {
 j_d_yunnan['track'] = _build_track_for_journey(j_d_yunnan)
 j_d_yunnan['cover_uri'] = j_d_yunnan['stories'][0]['cover_uri']
 
+# ----------
 j_d_jiuzhai = {
     'title': '九寨沟',
     'abspath_full': '/journeys/v/2/jiuzhaigou',
@@ -241,7 +243,10 @@ journey_list = [
     j_d_jiuzhai,
 ]
     
-
+#
+# people
+# -------
+#
 people_drangoncd = {
     'username': 'dragoncd',
     'fullname': 'Confused Dragon',
@@ -304,7 +309,7 @@ place_erhai['title'] = place_erhai['name']
 #
 journey_updates = []
 for journey in journey_list:
-    update = journey['stories'][-1]
+    update = dict(journey['stories'][-1]) # create new dict instace to avoid modify the origin
     update['text'] += update['title'] + '\n' + 'updated: {}'.format(update['date'])
     update['title'] = journey['title']
     journey_updates.append(update)
@@ -320,7 +325,35 @@ context_data = {
 
 #all_bricks = j_d_yunnan['stories']
 #all_bricks.extend(j_d_jiuzhai['stories'])
-all_bricks = [people_drangoncd, place_dali, j_d_yunnan]
+_pp_d = dict(people_drangoncd)
+_pp_d['text'] = _('%(journey_count)d journeys, been %(place_count)d places, '
+                  'wrote %(story_count)d stories.') % {
+                      'journey_count': 2,
+                      'place_count': 9,
+                      'story_count': 17                                 
+                  }
+
+_pl_d = dict(place_dali)
+_pl_d['text'] = _('%(been_count)d people been here, '
+                  'with %(jorney_count)d journeys '
+                  'and %(story_count)d stories. '
+                  '%(marked_count)d people marked it.') % {
+                      'been_count': 21,
+                      'jorney_count': 25,
+                      'story_count': 92,
+                      'marked_count': 125                                        
+                  }
+
+_j_y = dict(j_d_yunnan)
+_j_y['text'] = _('%(story_count)d stories in %(place_count)d places, '
+                 'by %(owner)s. %(marked_count)d people marked it.') % {
+                      'place_count': 3,
+                      'owner': 'Confused Dragon',
+                      'story_count': 7,
+                      'marked_count': 22                                        
+                  }
+
+all_bricks = [_pp_d, _pl_d, _j_y]
 all_bricks.extend(j_d_jiuzhai['stories'])
 all_bricks.extend([people_maklu, place_erhai])
 all_bricks.extend(j_d_yunnan['stories'])
