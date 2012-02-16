@@ -21,9 +21,9 @@
 
 {% block sec_r %}
 <section>
-by <a href="{{ owner.abspath_full }}">{{ owner.fullname }}</a><br />
-during <a href="{{ journey.abspath_full }}">{{ journey.title }}</a><br />
-at <a href="{{ place.abspath_full }}">{{ place.name }}</a>
+{% blocktrans with link_href=owner.abspath_full link_text=owner.fullname %}by <a href="{{ link_href }}">{{ link_text }}</a>{% endblocktrans %}<br />
+{% blocktrans with link_href=journey.abspath_full link_text=journey.title %}during <a href="{{ link_href }}">{{ link_text }}</a>{% endblocktrans %}<br />
+{% blocktrans with link_href=place.abspath_full link_text=place.name %}at <a href="{{ link_href }}">{{ link_text }}</a>{% endblocktrans %}
 </section>
 
 <section class="mark">

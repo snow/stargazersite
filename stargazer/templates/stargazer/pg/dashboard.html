@@ -12,16 +12,16 @@
 </section>
 
 <section class="">
-    other things you marked: <a href="">places</a> | <a href="">stories</a> | <a href="">all</a>
+    {% trans 'other things you marked' %}: <a href="">{% trans 'places' %}</a> | <a href="">{% trans 'stories' %}</a> | <a href="">{% trans 'all' %}</a>
 </section>
 
 <section class="feedback_list">
     <h3>{% trans 'Feedback' %}</h3>
     <ul>
-    <li><a href="{{ owner.abspath_full }}">{{ owner.fullname }}</a> marked your <a href="{{ story.abspath_full }}">{{ story.title }}</a></li>
-    <li><a href="{{ owner.abspath_full }}">{{ owner.fullname }}</a> marked your <a href="{{ journey.abspath_full }}">{{ journey.title }}</a></li>
-    <li><a href="{{ owner.abspath_full }}">{{ owner.fullname }}</a> marked your <a href="{{ story.abspath_full }}">{{ story.title }}</a></li>
-    <li><a href="{{ owner.abspath_full }}">{{ owner.fullname }}</a> marked your <a href="{{ journey.abspath_full }}">{{ journey.title }}</a></li>
+    <li>{% blocktrans with subject_name=owner.fullname subject_uri=owner.abspath_full object_name=journey.title object_uri=journey.abspath_full %}<a href="{{ subject_uri }}">{{ subject_name }}</a> marked your <a href="{{ object_uri }}">{{ object_name }}</a>{% endblocktrans %}</li>
+    <li>{% blocktrans with subject_name=owner.fullname subject_uri=owner.abspath_full object_name=story.title object_uri=story.abspath_full %}<a href="{{ subject_uri }}">{{ subject_name }}</a> marked your <a href="{{ object_uri }}">{{ object_name }}</a>{% endblocktrans %}</li>
+    <li>{% blocktrans with subject_name=owner.fullname subject_uri=owner.abspath_full object_name=journey.title object_uri=journey.abspath_full %}<a href="{{ subject_uri }}">{{ subject_name }}</a> marked your <a href="{{ object_uri }}">{{ object_name }}</a>{% endblocktrans %}</li>
+    <li>{% blocktrans with subject_name=owner.fullname subject_uri=owner.abspath_full object_name=story.title object_uri=story.abspath_full %}<a href="{{ subject_uri }}">{{ subject_name }}</a> marked your <a href="{{ object_uri }}">{{ object_name }}</a>{% endblocktrans %}</li>
     </ul>
 </section>
 
@@ -29,7 +29,7 @@
     <h3>{% trans 'Explore' %}</h3>
     {% include 'stargazer/com/brick_list.html' %}
     <footer>
-        <a href="/explore/">see more &gt;</a>
+        <a href="/explore/">{% trans 'see more' %} &gt;</a>
     </footer>
 </section>
 <script>
