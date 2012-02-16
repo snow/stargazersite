@@ -1,0 +1,32 @@
+{% extends 'stargazer/layout/row_hbf-col_mr.html' %}
+{% load i18n %}
+
+{% block sec_m %}
+<article>
+    {% if story.title %}<h1>{{ story.title }}</h1>{% endif %}
+    <div class="text">{{ story.text }}</div>
+    <div class="photo_list">
+    {% for photo in story.photos %}
+        <img width="600px" src="{{ photo }}" alt="" />
+    {% endfor %}
+    </div>
+    <footer>
+        <div class="meta">
+            <span class="date">{{ story.date }}</span> {% trans 'at' %}
+            <span class="place">{{ story.place }}</span>
+        </div>
+    </footer>
+</article>
+{% endblock %}
+
+{% block sec_r %}
+<section>
+by <a href="{{ owner.abspath_full }}">{{ owner.fullname }}</a><br />
+during <a href="{{ journey.abspath_full }}">{{ journey.title }}</a><br />
+at <a href="{{ place.abspath_full }}">{{ place.name }}</a>
+</section>
+
+<section class="mark">
+    <a class="mark" href="">{% trans 'Mark this story' %}</a>
+</section>
+{% endblock %}

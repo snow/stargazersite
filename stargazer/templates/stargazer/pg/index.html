@@ -1,11 +1,14 @@
-{% extends 'stargazer/layout/row_hbf-col_mr.html' %}
+{% extends 'stargazer/pg/explore.html' %}
 {% load i18n %}
 
-{% block sec_m %}
-<section class="block_list">
-{% include 'stargazer/com/brick_list' %}
-</section>
-{% endblock %}
-
 {% block sec_r %}
+<section>
+    <h1>{% trans 'stargazer' %}</h1>
+    <p>{% trans "Tell your journey, see the world throw people's eyes." %}</p>
+</section>
+
+<section>
+    <h3>{% trans 'Signin' %}</h3>
+    <p>{% trans 'plz pretent there is the signin/signup form' %}</p>
+</section>
 {% endblock %}

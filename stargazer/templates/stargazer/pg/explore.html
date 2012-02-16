@@ -1,0 +1,16 @@
+{% extends 'stargazer/layout/row_hbf-col_mr.html' %}
+{% load i18n %}
+
+{% block sec_m %}
+<section class="">
+{% include 'stargazer/com/brick_list.html' %}
+</section>
+<script>
+(function($){
+    $('.brick_list').masonry({
+        itemSelector: '.brick',
+        //columnWidth: 200
+    });
+})(jQuery);
+</script>
+{% endblock %}
